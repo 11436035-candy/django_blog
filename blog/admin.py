@@ -1,6 +1,11 @@
+# blog/admin.py
 from django.contrib import admin
-from .models import Post
-
-@admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'body')
+from .models import Post,User
+class PostAdmin(admin.ModelAdmin): # new
+    list_display = (
+        "title",
+        "author",
+        "body",
+)
+admin.site.register(User)
+admin.site.register(Post, PostAdmin) # new
